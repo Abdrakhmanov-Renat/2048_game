@@ -1,4 +1,30 @@
-# Base layout template with Gulp, SCSS and Stylelint
-1. Create a repo using this template
-1. Replace `<your_account>` and `<repo_name>` with your Github username and the new repo name
-    - [DEMO LINK](https://<your_account>.github.io/<repo_name>/)
+# 2048 - Browser 2048 Game
+
+# Live Demo
+Experiance the live website:
+- [DEMO LINK](https://Abdrakhmanov-Renat.github.io/2048_game/)
+
+# Technologies Used
+
+## Core
+**-** **SCSS** (v6.4.1) - Styiling
+
+# Getting Started
+
+1. Clone the repository:
+```bash
+  git clone https://github.com/Abdrakhmanov-Renat/2048_game.git
+  cd 2048_game
+```
+2. Install dependencies:
+```bash
+npm install
+# or
+yarn install
+```
+3. Run the project locally:
+```bash
+npm start
+# or
+yarn start
+```
