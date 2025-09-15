@@ -31,7 +31,7 @@ const setCellConnected = (index, value = true) => {
 };
 
 // Returns random indexes
-const getRandomIndexes = function (array) {
+const getRandomIndexes = function(array) {
   const fIndex = Math.floor(Math.random() * array.length);
   let sIndex = Math.floor(Math.random() * array.length);
 
@@ -43,14 +43,14 @@ const getRandomIndexes = function (array) {
 };
 
 // Checks if an element has a modification
-const includeMod = function (element) {
+const includeMod = function(element) {
   const elementClasses = Array.from(element.classList);
 
   return elementClasses.some((classen) => classen.startsWith('field-cell--'));
 };
 
 // Returns modification of classes
-const modNumber = function (elementWithMod) {
+const modNumber = function(elementWithMod) {
   const classMod = Array.from(elementWithMod.classList).join(' ');
   const elementMod = classMod.split('--');
 
@@ -62,7 +62,7 @@ function getRandomIndex(array) {
 }
 
 // Sets new values on the field
-const newValuesOnField = function () {
+const newValuesOnField = function() {
   const freeCells = [];
 
   for (let index = 0; index < cells.length; index++) {
@@ -84,7 +84,7 @@ const newValuesOnField = function () {
 };
 
 // Checks all Modified
-const areAllCellsModified = function (ch) {
+const areAllCellsModified = function(ch) {
   for (let index = 0; index < ch.length; index++) {
     if (!includeMod(ch[index])) {
       return false;
@@ -95,7 +95,7 @@ const areAllCellsModified = function (ch) {
 };
 
 // Checks coonect
-const canConnectCells = function (item) {
+const canConnectCells = function(item) {
   for (let index = 0; index < item.length; index++) {
     const cell = item[index];
 
@@ -140,7 +140,7 @@ const canConnectCells = function (item) {
 };
 
 // Loose the Game
-const checkToRestart = function (arr) {
+const checkToRestart = function(arr) {
   const messageWinClasses = Array.from(messageWin.classList);
 
   if (messageWinClasses.includes('hidden')) {
@@ -151,14 +151,14 @@ const checkToRestart = function (arr) {
 };
 
 // Win the Game
-const checkToWin = function (mod) {
+const checkToWin = function(mod) {
   if (mod * 2 === 2048) {
     messageWin.classList.remove('hidden');
   }
 };
 
 // Sets score
-const setScore = function (modification) {
+const setScore = function(modification) {
   const value = modification * 2;
 
   scoreValue += value;
@@ -168,7 +168,7 @@ const setScore = function (modification) {
 };
 
 // Event Move Up
-const moveUp = function (arrayOfCells) {
+const moveUp = function(arrayOfCells) {
   let cellsMoved = false;
 
   for (let index = 0; index < arrayOfCells.length; index++) {
@@ -182,8 +182,8 @@ const moveUp = function (arrayOfCells) {
 
         while (newCellIndex >= 0) {
           if (
-            includeMod(arrayOfCells[newCellIndex]) &&
-            !isCellConnected(newCellIndex)
+            includeMod(arrayOfCells[newCellIndex])
+            && !isCellConnected(newCellIndex)
           ) {
             const firstClass = Array.from(arrayOfCells[newCellIndex].classList);
             const secondClass = Array.from(
@@ -191,8 +191,8 @@ const moveUp = function (arrayOfCells) {
             );
 
             if (
-              firstClass[firstClass.length - 1] !==
-              secondClass[secondClass.length - 1]
+              firstClass[firstClass.length - 1]
+              !== secondClass[secondClass.length - 1]
             ) {
               break;
             }
@@ -254,7 +254,7 @@ const moveUp = function (arrayOfCells) {
 };
 
 // Event Move Dowm
-const moveDown = function (arrayOfCells) {
+const moveDown = function(arrayOfCells) {
   let cellsMoved = false;
 
   for (let index = arrayOfCells.length - 1; index >= 0; index--) {
@@ -268,8 +268,8 @@ const moveDown = function (arrayOfCells) {
 
         while (newCellIndex < cells.length) {
           if (
-            includeMod(arrayOfCells[newCellIndex]) &&
-            !isCellConnected(newCellIndex)
+            includeMod(arrayOfCells[newCellIndex])
+            && !isCellConnected(newCellIndex)
           ) {
             const firstClass = Array.from(arrayOfCells[newCellIndex].classList);
             const secondClass = Array.from(
@@ -277,8 +277,8 @@ const moveDown = function (arrayOfCells) {
             );
 
             if (
-              firstClass[firstClass.length - 1] !==
-              secondClass[secondClass.length - 1]
+              firstClass[firstClass.length - 1]
+              !== secondClass[secondClass.length - 1]
             ) {
               break;
             }
@@ -340,7 +340,7 @@ const moveDown = function (arrayOfCells) {
 };
 
 // Event Move Left
-const moveLeft = function (arrayOfCells) {
+const moveLeft = function(arrayOfCells) {
   const specialNumbers = [0, 4, 8, 12];
   let cellsMoved = false;
 
@@ -355,8 +355,8 @@ const moveLeft = function (arrayOfCells) {
       while (!specialNumbers.includes(newCellIndex + 1)) {
         if (!specialNumbers.includes(index)) {
           if (
-            includeMod(arrayOfCells[newCellIndex]) &&
-            !isCellConnected(newCellIndex)
+            includeMod(arrayOfCells[newCellIndex])
+            && !isCellConnected(newCellIndex)
           ) {
             const firstClass = Array.from(arrayOfCells[newCellIndex].classList);
             const secondClass = Array.from(
@@ -364,8 +364,8 @@ const moveLeft = function (arrayOfCells) {
             );
 
             if (
-              firstClass[firstClass.length - 1] !==
-              secondClass[secondClass.length - 1]
+              firstClass[firstClass.length - 1]
+              !== secondClass[secondClass.length - 1]
             ) {
               break;
             }
@@ -429,7 +429,7 @@ const moveLeft = function (arrayOfCells) {
 };
 
 // Event Move Left
-const moveRight = function (arrayOfCells) {
+const moveRight = function(arrayOfCells) {
   const specialNumbers = [3, 7, 11, 15];
   let cellsMoved = false;
 
@@ -444,8 +444,8 @@ const moveRight = function (arrayOfCells) {
       while (!specialNumbers.includes(newCellIndex - 1)) {
         if (!specialNumbers.includes(index)) {
           if (
-            includeMod(arrayOfCells[newCellIndex]) &&
-            !isCellConnected(newCellIndex)
+            includeMod(arrayOfCells[newCellIndex])
+            && !isCellConnected(newCellIndex)
           ) {
             const firstClass = Array.from(arrayOfCells[newCellIndex].classList);
             const secondClass = Array.from(
@@ -453,8 +453,8 @@ const moveRight = function (arrayOfCells) {
             );
 
             if (
-              firstClass[firstClass.length - 1] !==
-              secondClass[secondClass.length - 1]
+              firstClass[firstClass.length - 1]
+              !== secondClass[secondClass.length - 1]
             ) {
               break;
             }
@@ -518,7 +518,7 @@ const moveRight = function (arrayOfCells) {
 };
 
 // Start
-buttonStart.addEventListener('click', function () {
+buttonStart.addEventListener('click', function() {
   buttonStart.classList.add('hidden');
   buttonRestart.classList.remove('hidden');
 
